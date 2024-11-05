@@ -17,7 +17,6 @@ return new class extends Migration
             $table->boolean('is_overdue')->default(false)->after('urgency_level');
             $table->integer('days_overdue')->default(0)->after('is_overdue');
             $table->timestamp('last_status_update')->nullable()->after('days_overdue');
-            $table->softDeletes();
         });
     }
 
@@ -27,7 +26,11 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('vaccinations', function (Blueprint $table) {
-            //
+            Schema::dropIfExists('status');
+            Schema::dropIfExists('urgency_level');
+            Schema::dropIfExists('is_overdue');
+            Schema::dropIfExists('days_overdue');
+            Schema::dropIfExists('last_status_update');
         });
     }
 };
