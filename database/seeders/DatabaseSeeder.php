@@ -20,8 +20,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             VaccinationRecordSeeder::class,
             HealthConditionSeeder::class,
-            VaccinationSeeder::class
-            
+            VaccinationSeeder::class,
+            VaccinationLocationSeeder::class
         ]);
     }
 }

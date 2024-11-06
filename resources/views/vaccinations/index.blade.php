@@ -94,7 +94,7 @@
                             <p class="text-sm text-gray-500">Due: {{ $vaccination->next_due_date->format('M d, Y') }}</p>
                         </div>
                         <div>
-                            <a href="{{ route('vaccination.schedule', $vaccination->id) }}" 
+                            <a href="{{ route('vaccination.schedule.show', $vaccination->id) }}" 
                                class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
                                 Schedule Now
                             </a>

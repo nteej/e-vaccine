@@ -44,5 +44,10 @@ return [
         'business_account_id' => env('WHATSAPP_BUSINESS_ACCOUNT_ID'),
         'webhook_verify_token' => env('WHATSAPP_WEBHOOK_VERIFY_TOKEN'),
     ],
+    'vonage' => [
+        'key' => env('VONAGE_KEY'),
+        'secret' => env('VONAGE_SECRET'),
+        'sms_from' => env('VONAGE_SMS_FROM'),
+    ],
 
 ];

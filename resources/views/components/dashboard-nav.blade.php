@@ -4,7 +4,7 @@
             <!-- Logo and Brand -->
             <div class="flex">
                 <div class="flex-shrink-0 flex items-center">
-                    <h1 class="text-xl font-bold text-indigo-600">VaccineTracker</h1>
+                    <h1 class="text-xl font-bold text-indigo-600">VaccineBuddy 0.1.0v</h1>
                 </div>
             </div>
 
