@@ -30,7 +30,7 @@ class ProfileController extends Controller
         $user = auth()->user()->load('healthConditions');
         $healthConditions = HealthCondition::all();
         $userHealthConditions = $user->healthConditions->pluck('id')->toArray();
-
+        
         return view('profile.index', compact('user', 'healthConditions', 'userHealthConditions'));
     }
 

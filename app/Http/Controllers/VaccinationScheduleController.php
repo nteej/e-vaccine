@@ -23,7 +23,7 @@ class VaccinationScheduleController extends Controller
    {
        $availableTimeSlots = $this->vaccinationService->getAvailableTimeSlots();
        $locations = $this->vaccinationService->getAvailableLocations();
-
+       // dd($vaccination);
        return view('vaccinations.schedule', compact('vaccination', 'availableTimeSlots', 'locations'));
    }
 

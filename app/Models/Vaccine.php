@@ -25,4 +25,6 @@ class Vaccine extends Model
     {
         return $this->hasMany(VaccinationRecord::class);
     }
+
+
 }

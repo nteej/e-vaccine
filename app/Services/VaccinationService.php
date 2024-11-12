@@ -4,6 +4,7 @@ namespace App\Services;
 use App\Models\Vaccination;
 use App\Models\VaccinationLocation;
 use Carbon\Carbon;
+use App\Notifications\VaccinationScheduledNotification;
 
 class VaccinationService
 {

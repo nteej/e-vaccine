@@ -29,6 +29,7 @@ class VaccinePassportController extends Controller
     public function download()
     {
         $user = auth()->user();
+        
         $passportData = $this->passportService->generatePassportData($user);
         $qrCode = $this->passportService->generateQRCode($user);
     
@@ -39,17 +40,31 @@ class VaccinePassportController extends Controller
         $pdf->setWarnings(false);
         
         // Add protection if needed
-        $pdf->setEncryption('password', 'owner-password', ['copy', 'print']);
+        $pdf->setEncryption('password', 'owner-password', [
+            'copy',
+            'print',
+            'print-high',
+            'modify',
+            'assemble',
+            'fill-forms'
+        ]);
         
         return $pdf->download('vaccine-passport.pdf');
     }
 
-    public function verify($code)
+    public function verify($token)
     {
-        $verificationResult = $this->passportService->verifyPassport($code);
+        $verificationResult = $this->passportService->verifyPassport($token);
         
+        // For API requests
+        if (request()->wantsJson()) {
+            return response()->json($verificationResult);
+        }
+
+        // For web requests
         return view('vaccine-passport.verify', compact('verificationResult'));
     }
+
     public function shared($token)
     {
         $passportData = $this->passportService->getSharedPassport($token);

@@ -23,14 +23,16 @@ class HealthProfileController extends Controller
         $healthProfile = $this->healthProfileService->getUserHealthProfile($user);
         $riskAssessment = $this->healthProfileService->calculateRiskAssessment($user);
         $recommendedActions = $this->healthProfileService->getRecommendedActions($user);
-
+        $allergy=json_decode($user->allergies);
+        $medication=json_decode($user->medications);
         return view('health-profile.index', compact(
             'user',
             'healthConditions',
             'userHealthConditions',
             'healthProfile',
             'riskAssessment',
-            'recommendedActions'
+            'recommendedActions',
+            'allergy','medication'
         ));
     }
 

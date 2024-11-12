@@ -129,7 +129,7 @@
                             <!-- Allergies -->
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-2">Allergies</label>
-                                <div x-data="{ allergies: {{ json_encode(old('allergies', $user->allergies ?? [])) }} }">
+                                <div x-data="{ allergies: {{ old('allergies', $allergies ?? []) }} }">
                                     <template x-for="(allergy, index) in allergies" :key="index">
                                         <div class="flex space-x-2 mb-2">
                                             <input type="text" x-model="allergies[index]" :name="'allergies[]'"

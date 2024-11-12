@@ -25,6 +25,12 @@
                             </div>
 
                             <div class="mt-6">
+                                <div class="bg-blue-50 rounded-md p-4 mb-4">
+                                    <p class="text-sm text-blue-700">
+                                        Verified on: {{ now()->format('F j, Y g:i A') }}
+                                    </p>
+                                </div>
+
                                 <h3 class="text-lg font-medium text-gray-900">Passport Details</h3>
                                 <dl class="mt-4 space-y-4">
                                     <div>
@@ -35,13 +41,27 @@
                                     </div>
                                     
                                     <div>
-                                        <dt class="text-sm font-medium text-gray-500">Vaccinations</dt>
+                                        <dt class="text-sm font-medium text-gray-500">Date of Birth</dt>
                                         <dd class="mt-1 text-sm text-gray-900">
+                                            {{ $verificationResult['data']['user_info']['date_of_birth'] }}
+                                        </dd>
+                                    </div>
+
+                                    <div>
+                                        <dt class="text-sm font-medium text-gray-500">Vaccinations</dt>
+                                        <dd class="mt-1">
                                             <ul class="divide-y divide-gray-200">
                                                 @foreach($verificationResult['data']['vaccinations'] as $vaccination)
                                                     <li class="py-3">
-                                                        <p class="font-medium">{{ $vaccination['vaccine_name'] }}</p>
-                                                        <p class="text-gray-500">Administered: {{ $vaccination['date_administered'] }}</p>
+                                                        <p class="text-sm font-medium text-gray-900">
+                                                            {{ $vaccination['vaccine_name'] }}
+                                                        </p>
+                                                        <p class="text-sm text-gray-500">
+                                                            Administered: {{ $vaccination['date_administered'] }}
+                                                        </p>
+                                                        <p class="text-sm text-gray-500">
+                                                            Location: {{ $vaccination['location'] }}
+                                                        </p>
                                                     </li>
                                                 @endforeach
                                             </ul>

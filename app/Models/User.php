@@ -28,12 +28,12 @@ class User extends Authenticatable
     ];
 
     public function vaccinations() {
-        return $this->hasMany(Vaccination::class);
+        return $this->hasMany(Vaccination::class,'user_id','id');
     }
 
     public function vaccinationRecords()
     {
-        return $this->hasMany(VaccinationRecord::class);
+        return $this->hasMany(VaccinationRecord::class,'user_id','id');
     }
 
     public function getFullNameAttribute()

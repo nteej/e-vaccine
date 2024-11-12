@@ -59,7 +59,7 @@ class VaccinationSchedulerController extends Controller
                     $vaccine->frequency,
                     $today
                 );
-
+                //dd($vaccine);
                 $vaccinationStatus = [
                     'vaccine' => $vaccine,
                     'last_vaccination' => $lastVaccination,
@@ -107,7 +107,7 @@ class VaccinationSchedulerController extends Controller
             $dueVaccinations,
             $healthConditions
         );
-
+        
         return view('dashboard', compact(
             'user',
             'dueVaccinations',

@@ -149,7 +149,7 @@
             <div class="border-t border-gray-200">
                 <div class="px-4 py-5 sm:px-6">
                     <!-- Allergies -->
-                    <div x-data="{ allergies: {{ json_encode($user->allergies ?? []) }} }">
+                    <div x-data="{ allergies: {{ json_encode($allergy ?? []) }} }">
                         <h3 class="text-sm font-medium text-gray-700 mb-2">Allergies</h3>
                         <template x-for="(allergy, index) in allergies" :key="index">
                             <div class="flex items-center space-x-2 mb-2">
@@ -167,7 +167,7 @@
                     </div>
 
                     <!-- Medications -->
-                    <div x-data="{ medications: {{ json_encode($user->medications ?? []) }} }" class="mt-6">
+                    <div x-data="{ medications: {{ json_encode($medication ?? []) }} }" class="mt-6">
                         <h3 class="text-sm font-medium text-gray-700 mb-2">Current Medications</h3>
                         <template x-for="(medication, index) in medications" :key="index">
                             <div class="flex items-center space-x-2 mb-2">

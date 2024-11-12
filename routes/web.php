@@ -37,14 +37,14 @@ Route::middleware(['auth'])->group(function () {
          ->name('vaccine-passport.show');
     Route::get('/vaccine-passport/download', [VaccinePassportController::class, 'download'])
          ->name('vaccine-passport.download');
-    Route::get('/vaccine-passport/verify/{code}', [VaccinePassportController::class, 'verify'])
-         ->name('vaccine-passport.verify');
+    
 
     Route::get('/vaccine-passport/shared/{token}', [VaccinePassportController::class, 'shared'])
          ->name('vaccine-passport.shared');
     
 });
-
+Route::get('/vaccine-passport/verify/{code}', [VaccinePassportController::class, 'verify'])
+         ->name('vaccine-passport.verify');
 Route::prefix('profile')->group(function () {
      Route::get('/', [ProfileController::class, 'index'])->name('profile.index');
      Route::put('/update', [ProfileController::class, 'update'])->name('profile.update');
